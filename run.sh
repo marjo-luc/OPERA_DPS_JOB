@@ -23,12 +23,12 @@ ARGS=()
 [[ -n "${SHORT_NAME}" ]] || SHORT_NAME="OPERA_L3_DISP-S1_V1"
 ARGS+=("--short-name" "${SHORT_NAME}")
 
-[[ -n "${TEMPORAL}"   ]] && ARGS+=("--temporal" "${TEMPORAL}")
-[[ -n "${BBOX}"       ]] && ARGS+=("--bbox" "${BBOX}")
-[[ -n "${LIMIT}"      ]] && ARGS+=("--limit" "${LIMIT}")
-[[ -n "${GRANULE_UR}" ]] && ARGS+=("--granule-ur" "${GRANULE_UR}")
-[[ -n "${IDX_WINDOW}" ]] && ARGS+=("--idx-window" "${IDX_WINDOW}")
-[[ -n "${S3_URL}"     ]] && ARGS+=("--s3-url" "${S3_URL}")
+[[ -n "${TEMPORAL}"   ]] && ARGS+=("${TEMPORAL}")
+[[ -n "${BBOX}"       ]] && ARGS+=("${BBOX}")
+[[ -n "${LIMIT}"      ]] && ARGS+=("${LIMIT}")
+[[ -n "${GRANULE_UR}" ]] && ARGS+=("${GRANULE_UR}")
+[[ -n "${IDX_WINDOW}" ]] && ARGS+=("${IDX_WINDOW}")
+[[ -n "${S3_URL}"     ]] && ARGS+=("${S3_URL}")
 
 
 ARGS+=("--dest" "output")
