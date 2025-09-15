@@ -21,7 +21,7 @@ S3_URL="${7:-}"
 # ---- Build CLI for Python ---------------------------------------------------
 ARGS=()
 [[ -n "${SHORT_NAME}" ]] || SHORT_NAME="OPERA_L3_DISP-S1_V1"
-ARGS+=("--short-name" "${SHORT_NAME}")
+ARGS+=("${SHORT_NAME}")
 
 [[ -n "${TEMPORAL}"   ]] && ARGS+=("${TEMPORAL}")
 [[ -n "${BBOX}"       ]] && ARGS+=("${BBOX}")
