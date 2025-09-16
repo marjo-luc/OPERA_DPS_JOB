@@ -20,15 +20,15 @@ S3_URL="${7:-}"
 
 # ---- Build CLI for Python ---------------------------------------------------
 ARGS=()
-[[ -n "${SHORT_NAME}" ]] || SHORT_NAME="OPERA_L3_DISP-S1_V1"
-ARGS+=("${SHORT_NAME}")
+# TODO: mlucas: add default short name back in.
+[[ -n "${SHORT_NAME}" ]] && ARGS+=("--short_name" "${SHORT_NAME}")
 
-[[ -n "${TEMPORAL}"   ]] && ARGS+=("${TEMPORAL}")
-[[ -n "${BBOX}"       ]] && ARGS+=("${BBOX}")
-[[ -n "${LIMIT}"      ]] && ARGS+=("${LIMIT}")
-[[ -n "${GRANULE_UR}" ]] && ARGS+=("${GRANULE_UR}")
-[[ -n "${IDX_WINDOW}" ]] && ARGS+=("${IDX_WINDOW}")
-[[ -n "${S3_URL}"     ]] && ARGS+=("${S3_URL}")
+[[ -n "${TEMPORAL}" ]] && ARGS+=("--temporal" "${TEMPORAL}")
+[[ -n "${BBOX}" ]] && ARGS+=("--bbox" "${BBOX}")
+[[ -n "${LIMIT}" ]] && ARGS+=("--limit" "${LIMIT}")
+[[ -n "${GRANULE_UR}" ]] && ARGS+=("--granule-ur" "${GRANULE_UR}")
+[[ -n "${IDX_WINDOW}" ]] && ARGS+=("--idx-window" "${IDX_WINDOW}")
+[[ -n "${S3_URL}" ]] && ARGS+=("--s3-url" "${S3_URL}")
 
 
 ARGS+=("--dest" "output")
@@ -36,7 +36,9 @@ ARGS+=("--dest" "output")
 # ---- Run & capture stderr to triage -----------------------------------------
 logfile="_opera-watermask.log"
 set -x
-${PY} "${basedir}/water_mask_to_cog.py" "${ARGS[@]}" 2>"${logfile}"
+#${PY} "${basedir}/water_mask_to_cog.py" "${ARGS[@]}" 2>"${logfile}"
+${PY} "${basedir}/water_mask_to_cog.py" --short_name OPERA_L3_DISP-S1_V1 --temporal 2016-07-01T00:00:00Z,2024-12-31T23:59:59Z --idx_window 0:1024,0:1024
+
 # Include stdio + log in products
 cp -v _stderr.txt _stdout.txt output/ 2>/dev/null || true
 mv -v "${logfile}" output/
