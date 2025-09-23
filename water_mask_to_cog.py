@@ -224,6 +224,7 @@ def pick_granule_url(maap: MAAP, short_name, temporal, bbox, limit, fixed_ur=Non
         )
 
     creds = maap.aws.earthdata_s3_credentials("https://cumulus.asf.alaska.edu/s3credentials")
+    print("mlucas s3_url: ", s3_url)
     return s3_url, {"granule": pick, "aws_creds": creds}
 
 
@@ -240,6 +241,9 @@ def open_remote_dataset(granule_url: str, aws_creds: dict) -> xr.Dataset:
         token=aws_creds["sessionToken"],
         client_kwargs={"region_name": "us-west-2"},
     )
+
+    print("mlucas aws key: ", aws_creds["accessKeyId"])
+    print("mlucas granule: ", granule_url)
 
     # Sanity check (raises if key not found)
     _ = s3.info(granule_url)
