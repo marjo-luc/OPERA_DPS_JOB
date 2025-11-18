@@ -111,7 +111,7 @@ s:contributor:
   s:name: None
 s:citation: null
 s:codeRepository: https://github.com/marjo-luc/OPERA_DPS_JOB.git
-s:commitHash: e750023fbca58dba41c0ff60e8312175a6971448
+s:commitHash: 4dd3b083224fd8ec360e6804dee419e18986942a
 s:dateCreated: 2025-11-18
 s:license: https://github.com/marjo-luc/OPERA_DPS_JOB/blob/feat-v1/LICENSE
 s:softwareVersion: 1.0.0
