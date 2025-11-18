@@ -8,7 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 COPY ./env.yml /tmp/env.yml
 
 # Update Conda and create a new environment based on the environment.yml file
-RUN conda env update --quiet --solver libmamba -n watermask -f /tmp/env.yml && \
+RUN conda env update --quiet --solver libmamba -n subset_watermask_cog -f /tmp/env.yml && \
     conda clean --all
 
 RUN mkdir -p OPERA_DPS_JOB
