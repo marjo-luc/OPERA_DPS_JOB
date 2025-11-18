@@ -22,7 +22,7 @@ jobs:
         uses: MAAP-Project/ogc-app-pack-generator@main
         with:
           # Specify action inputs
-          algorithm-configuration-path: algorithm.yml
+          algorithm-configuration-path: algorithm_ogc.yml
           dockerfile-path: Dockerfile
           deploy-app-pack: false
           #app-pack-register-endpoint: https://api.uat.maap-project.org/api/ogc/processes
