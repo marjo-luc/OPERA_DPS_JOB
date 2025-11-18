@@ -4,7 +4,35 @@ $graph:
   label: operawatermask1
   doc: None
   id: operawatermask1
-  inputs: {}
+  inputs:
+    SHORT_NAME:
+      doc: SHORT_NAME
+      label: SHORT_NAME
+      type: string
+    TEMPORAL:
+      doc: TEMPORAL
+      label: TEMPORAL
+      type: string
+    BBOX:
+      doc: BBOX
+      label: BBOX
+      type: string
+    LIMIT:
+      doc: LIMIT
+      label: LIMIT
+      type: string
+    GRANULE_UR:
+      doc: GRANULE_UR
+      label: GRANULE_UR
+      type: string
+    IDX_WINDOW:
+      doc: IDX_WINDOW
+      label: IDX_WINDOW
+      type: string
+    S3_URL:
+      doc: S3_URL
+      label: S3_URL
+      type: string
   outputs:
     out:
       type: Directory
@@ -12,7 +40,14 @@ $graph:
   steps:
     process:
       run: '#main'
-      in: {}
+      in:
+        SHORT_NAME: SHORT_NAME
+        TEMPORAL: TEMPORAL
+        BBOX: BBOX
+        LIMIT: LIMIT
+        GRANULE_UR: GRANULE_UR
+        IDX_WINDOW: IDX_WINDOW
+        S3_URL: S3_URL
       out:
       - outputs_result
 - class: CommandLineTool
@@ -27,7 +62,42 @@ $graph:
       coresMin: 1
       outdirMax: 20
   baseCommand: /OPERA_DPS_JOB/run.sh
-  inputs: {}
+  inputs:
+    SHORT_NAME:
+      type: string
+      inputBinding:
+        position: 1
+        prefix: --SHORT_NAME
+    TEMPORAL:
+      type: string
+      inputBinding:
+        position: 2
+        prefix: --TEMPORAL
+    BBOX:
+      type: string
+      inputBinding:
+        position: 3
+        prefix: --BBOX
+    LIMIT:
+      type: string
+      inputBinding:
+        position: 4
+        prefix: --LIMIT
+    GRANULE_UR:
+      type: string
+      inputBinding:
+        position: 5
+        prefix: --GRANULE_UR
+    IDX_WINDOW:
+      type: string
+      inputBinding:
+        position: 6
+        prefix: --IDX_WINDOW
+    S3_URL:
+      type: string
+      inputBinding:
+        position: 7
+        prefix: --S3_URL
   outputs:
     outputs_result:
       outputBinding:
@@ -41,7 +111,7 @@ s:contributor:
   s:name: None
 s:citation: null
 s:codeRepository: https://github.com/marjo-luc/OPERA_DPS_JOB.git
-s:commitHash: 880fdc129a78a46138730f605b3a9ce5fcf248d4
+s:commitHash: e750023fbca58dba41c0ff60e8312175a6971448
 s:dateCreated: 2025-11-18
 s:license: https://github.com/marjo-luc/OPERA_DPS_JOB/blob/feat-v1/LICENSE
 s:softwareVersion: 1.0.0
