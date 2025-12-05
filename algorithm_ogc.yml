@@ -1,0 +1,47 @@
+algorithm_description: None
+algorithm_name: operawatermask1
+algorithm_version: 0.1.1
+ram_min: 5 # mebibytes
+cores_min: 1
+outdir_max: 20 # mebibytes
+code_repository: https://github.com/marjo-luc/OPERA_DPS_JOB.git
+run_command: /OPERA_DPS_JOB/run.sh
+release_notes: None
+author: None
+contributor: None
+license: https://github.com/marjo-luc/OPERA_DPS_JOB/blob/feat-v1/LICENSE
+release_notes: None
+
+inputs:
+  - name: SHORT_NAME
+    doc: SHORT_NAME
+    label: SHORT_NAME
+    type: string
+  - name: TEMPORAL
+    doc: TEMPORAL
+    label: TEMPORAL
+    type: string
+  - name: BBOX
+    doc: BBOX
+    label: BBOX
+    type: string
+  - name: LIMIT
+    doc: LIMIT
+    label: LIMIT
+    type: string
+  - name: GRANULE_UR
+    doc: GRANULE_UR
+    label: GRANULE_UR
+    type: string
+  - name: IDX_WINDOW
+    doc: IDX_WINDOW
+    label: IDX_WINDOW
+    type: string
+  - name: S3_URL
+    doc: S3_URL
+    label: S3_URL
+    type: string
+
+outputs:
+  - name: out
+    type: Directory

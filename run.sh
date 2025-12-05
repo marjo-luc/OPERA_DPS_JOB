@@ -36,7 +36,10 @@ ARGS+=("--dest" "output")
 # ---- Run & capture stderr to triage -----------------------------------------
 logfile="_opera-watermask.log"
 set -x
-${PY} "${basedir}/water_mask_to_cog.py" "${ARGS[@]}" 2>"${logfile}"
+
+#${PY} "${basedir}/water_mask_to_cog.py" "${ARGS[@]}" 2>"${logfile}"
+${PY} "${basedir}/water_mask_to_cog.py" --short_name OPERA_L3_DISP-S1_V1 --temporal 2016-07-01T00:00:00Z,2024-12-31T23:59:59Z --idx_window 0:1024,0:1024
+
 # Include stdio + log in products
 cp -v _stderr.txt _stdout.txt output/ 2>/dev/null || true
 mv -v "${logfile}" output/
