@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - ogc
     tags:
       - '*'
   workflow_dispatch:
@@ -28,4 +28,4 @@ jobs:
           #app-pack-register-endpoint: https://api.uat.maap-project.org/api/ogc/processes
         env:
           # MAAP PGT token is required to deploy the process
-          MAAP_PGT: ${{ secrets.MAAP_PGT_MLUCAS }}
+          MAAP_PGT: ${{ secrets.MY_PGT_TOKEN }}
