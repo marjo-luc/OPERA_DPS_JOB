@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - feat-v1
+      - main
     tags:
       - '*'
   workflow_dispatch:
